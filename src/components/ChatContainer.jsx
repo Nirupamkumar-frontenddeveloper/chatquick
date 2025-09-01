@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import assets, { messagesDummyData } from '../assets/assets'
 import { FormatMessageTime } from '../lib/utils'
+
+
 const ChatContainer = ({ selectedUser, setSelectedUser }) => {
 
   const scrollEnd = useRef()
@@ -30,14 +32,14 @@ const ChatContainer = ({ selectedUser, setSelectedUser }) => {
 
       {/* //Chat */}
 
-      <div className='flex flex-col h-[calc(100%-120px) ] overflow-y-scroll p-3 pb-6'>
+      <div className='flex flex-col h-[calc(100%-120px)] overflow-y-scroll p-3 pb-6'>
         {messagesDummyData.map((msg, index) => (
           <div className={`flex items-end gap-2 justify-end ${msg.senderId !== '680f50e4f10f3cd28382ecf9' && 'flex-row-reverse'}`} key={index}>
 
             {msg.image ? (
               <img src={msg.image} alt="" className='max-w-[230px] border border-gray-700 rounded-lg overflow-hidden mb-8' />
             ) : (
-              <p className={`p-2 max-w-[200px] md:text-sm font-light rounded-lg mb-8 break-all bg-violet-500/30 text-white $ {msg.senderId === '680f50e4f10f3cd28382ecf9' ? 'rounded-br-none: 'rounded-bl-none'}`}>{msg.text}</p>
+              <p className={`p-2 max-w-[200px] md:text-sm font-light rounded-lg mb-8 break-all bg-violet-500/30 text-white $ {msg.senderId === '680f50e4f10f3cd28382ecf9' ? 'rounded-br-none': 'rounded-bl-none'}`}>{msg.text}</p>
             )}
 
             <div className='text-center text-xs'>
@@ -61,8 +63,7 @@ const ChatContainer = ({ selectedUser, setSelectedUser }) => {
             <img src={assets.send_button} alt=""  className='w-7 cursor-pointer' />
       </div>
     </div>
-  )
-    : (
+  ):(
       <div className='flex flex-col items-center justify-center gap-2 text-gray-500 bg-white/10 max-md:hidden'>
         <img src={assets.logo_icon} alt="" className='max-w-16' />
         <p className='text-lg font-medium text-white'>Chat anytime , anywhere</p>
